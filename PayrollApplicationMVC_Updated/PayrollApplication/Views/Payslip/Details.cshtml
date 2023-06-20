@@ -1,0 +1,51 @@
+﻿@model PayrollApplication.Models.Tax
+@Model PayrollApplication.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tax</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Salary.SalaryType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salary.SalaryType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Employee Name")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => Model.Salary.Employee.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TaxId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

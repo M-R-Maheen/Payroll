@@ -1,0 +1,93 @@
+﻿@model IEnumerable<PayrollApplication.ViewModels.PayslipViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div>Pay Slip (Salary)</div>
+    <div class="row">
+        <div class="col-4"></div>
+            <div class="col-4 shadow-lg p-3 mb-5 bg-white rounded text-center" style="color:blueviolet">
+                <h2>
+                    BD SOFTS GROUP LIMITED
+                </h2>
+            </div>
+        <div class="col-4"></div>
+    </div>
+
+<p class="rounded-2" style="float:right; background-color:blueviolet; text-decoration: none; color:white; padding:10px;">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-dark table-hover shadow-lg">
+    <tr>
+        <th style="background-color:blueviolet;color:white;" >
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </th>
+        <th style="background-color:blueviolet">
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th style="background-color:blueviolet">
+            @Html.DisplayNameFor(model => model.Position)
+        </th >
+        <th style="background-color:blueviolet" >
+            @Html.DisplayName("Salary Of Month")
+        </th>
+
+        <th style="background-color:blueviolet">
+            @Html.DisplayNameFor(model => model.BasicSalary)
+        </th>
+        <th style="background-color:blueviolet"
+            @Html.DisplayNameFor(model => model.GrossSalary)
+        </th>
+        <th style="background-color:blueviolet">
+            @Html.DisplayNameFor(model => model.TaxName)
+        </th>
+        <th style="background-color:blueviolet">
+            @Html.DisplayNameFor(model => model.TaxAmount)
+        </th>
+        <th style="background-color:blueviolet">
+            @Html.DisplayNameFor(model => model.NetSalary)
+        </th>
+
+        <th class="text-center" style="background-color:blueviolet">Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalaryOfMonth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BasicSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GrossSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NetSalary)
+            </td>
+            <td style="display:inline-flex;">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.TaxId }, new {@class= "btn btn-success"})
+                    @Html.ActionLink("Details", "Details", new { id = item.TaxId }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TaxId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+</table>
+

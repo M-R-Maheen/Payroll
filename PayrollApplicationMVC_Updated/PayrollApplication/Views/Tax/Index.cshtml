@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PayrollApplication.Models.TaxViewModel>
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Index</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table table-hover">
+        <tr>
+            <th class="bg-success text-light">
+                @Html.DisplayName("Employee Name")
+            </th>
+            <th class="bg-success text-light">
+                @Html.DisplayName("Tax Of Month")
+            </th>
+            <th class="bg-success text-light">
+                @Html.DisplayName("Type Of Tax")
+            </th>
+            <th class="bg-success text-light">
+                @Html.DisplayName("Tax Amount")
+            </th>
+
+            <th class="bg-success text-danger">Action</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SalaryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaxName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaxAmount)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.TaxId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.TaxId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TaxId })
+                </td>
+            </tr>
+        }
+    </table>

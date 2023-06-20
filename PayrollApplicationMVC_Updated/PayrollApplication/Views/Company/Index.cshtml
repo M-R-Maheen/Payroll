@@ -1,0 +1,87 @@
+﻿@model IEnumerable<PayrollApplication.Models.Company>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="container mt-3">
+    <h1 class="text-center" style="color:blueviolet">Company List</h1>
+
+    <button type="button" class="btn" style="background-color:blueviolet;color:white;">
+        @Html.ActionLink("Create New", "Create")
+    </button>
+    <div class="card shadow-lg">
+        <div class="card-header text-lg-center">
+            Company List
+        </div>
+        <div class="card-body">
+
+            <table class="table table-row-hover">
+                <tr>
+                    <th style="background-color: blueviolet;color:white">
+                        @Html.DisplayNameFor(model => model.CompanyName)
+                    </th>
+                    <th style="background-color: blueviolet;color:white">
+                        @Html.DisplayNameFor(model => model.CompanyType)
+                    </th>
+                    <th style="background-color: blueviolet;color:white">
+                        @Html.DisplayNameFor(model => model.CompanyAddress)
+                    </th>
+                    <th style="background-color: blueviolet;color:white">
+                        @Html.DisplayNameFor(model => model.PhoneNo)
+                    </th>
+                    <th style="background-color: blueviolet;color:white">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th style="background-color: blueviolet;color:white">
+                        @Html.DisplayNameFor(model => model.Website)
+                    </th>
+                    <th style="background-color: blueviolet;color:white">Action</th>
+                </tr>
+
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CompanyName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CompanyType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CompanyAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Website)
+                        </td>
+                        <td style="display:inline-flex;color:white">
+                            <button type="button" class="btn" style="background-color: blueviolet;color:white">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.CompanyId })
+                            </button>
+                            <button type="button" class="btn" style="background-color: blueviolet;color:white">
+                                @Html.ActionLink("Details", "Details", new { id = item.CompanyId })
+                            </button>
+                            <button type="button" class="btn" style="background-color:blueviolet;color:red">
+                                @Html.ActionLink("Delete", "Delete", new { id = item.CompanyId })
+                            </button>
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+        <div class="card-footer text-center">Bd Softs Group</div>
+    </div>
+</div>
+
+
